@@ -1,7 +1,9 @@
 package flixel.tile;
 import flixel.FlxObject;
+import flixel.group.FlxGroup;
 import flixel.system.FlxCollisionType;
 import flixel.util.FlxPoint;
+import flixel.FlxSprite;
 
 /**
  * ...
@@ -88,6 +90,10 @@ class FlxBaseTilemap<TilemapKind, TileKind : FlxBaseTile<TilemapKind>> extends F
 	 * Internal, used to sort of insert blank tiles in front of the tiles in the provided graphic.
 	 */
 	private var _startingIndex:Int;
+	/**
+	 * Group of objects in the world
+	 */
+	public var group : Array<FlxSprite>;
 
 	/**
 	 * Virtual methods, must be implemented in each renderers
@@ -120,6 +126,16 @@ class FlxBaseTilemap<TilemapKind, TileKind : FlxBaseTile<TilemapKind>> extends F
 		cameras = null;
 		
 		_startingIndex = 0;
+		
+		group = new Array<FlxSprite>();
+	}
+
+	/**
+	 * Add a world object to the tilemap
+	 */
+	public function add(Object : FlxSprite):Void
+	{
+		group.push(Object);
 	}
 	
 	/**
