@@ -1,4 +1,5 @@
 package flixel.tile;
+import flixel.FlxCamera;
 import flixel.FlxObject;
 import flixel.group.FlxGroup;
 import flixel.system.FlxCollisionType;
@@ -136,6 +137,7 @@ class FlxBaseTilemap<TilemapKind, TileKind : FlxBaseTile<TilemapKind>> extends F
 	public function add(Object : FlxSprite):Void
 	{
 		group.push(Object);
+		Object.cameras = [new FlxCamera()];
 	}
 	
 	/**
