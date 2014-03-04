@@ -127,6 +127,9 @@ class FlxBaseTilemap<TilemapKind, TileKind : FlxBaseTile<TilemapKind>> extends F
 	 */
 	override public function destroy():Void
 	{		
+		var i:Int = 0;
+		var l:Int;
+
 		_data = null;
 
 		if (_tileObjects != null)
